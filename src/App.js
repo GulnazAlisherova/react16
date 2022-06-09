@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-
+import ExchangeRate from "./ExchangeRate";
 function App() {
   const [ExchangeRates, setExchangeRates] = useState([])
 
@@ -10,12 +10,13 @@ function App() {
       .then(data => setExchangeRates(data)); 
   }, [setExchangeRates])
 
-  const output = Object.keys(ExchangeRates);
+  const output = Object
+  .values(ExchangeRates)
+  .map(currency => <ExchangeRate from="KGS" to={currency.code} rate={currency.inverseRate}/>);
 
   return (
     <div className="App">
     {output}
-
     </div>
   );
 }
