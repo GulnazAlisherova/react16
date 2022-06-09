@@ -5,9 +5,9 @@ function App() {
   const [ExchangeRates, setExchangeRates] = useState([])
 
   useEffect(() => {
-    fetch('https://www.floatrates.com/daily/kgs.json')
-      .then(response => response.json())
-      .then(data => setExchangeRates(data));
+    fetch('https://www.floatrates.com/daily/kgs.json') //make http request
+      .then(response => response.json()) //convert string to javascript object
+      .then(data => setExchangeRates(data)); 
   }, [setExchangeRates])
 
   const output = Object.keys(ExchangeRates);
